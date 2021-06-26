@@ -25,8 +25,19 @@ public class Order {
 
     @NotNull
     private String ownerPhoneNumber;
+    
+    @NotNull
+    private String status;
+    
+    public String getStatus() {
+		return status;
+	}
 
-    public long getOrderId() {
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public long getOrderId() {
         return orderId;
     }
 
