@@ -33,7 +33,8 @@ public class Order {
     private String ownerPhoneNumber;
     
     @NotNull
-    private String status;
+    @JsonIgnore
+    private Status status;
 
     @NotNull
     @JsonIgnore
@@ -47,11 +48,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 
 	}

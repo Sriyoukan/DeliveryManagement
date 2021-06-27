@@ -3,6 +3,7 @@ package com.delivery.system.controller;
 
 import com.delivery.system.domainclass.Order;
 import com.delivery.system.domainclass.ResponseOrder;
+import com.delivery.system.domainclass.Status;
 import com.delivery.system.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,7 @@ public class OrderController {
     public ResponseOrder  saveOrder(@RequestBody Order order){
         ResponseOrder r=new ResponseOrder();
         order.setOrderDate(new Date(System.currentTimeMillis()));
+        order.setStatus(Status.UNCONFIRM);
         Order O1=orderRepository.save(order);
         r.setOrderId(O1.getOrderId());
         r.setOwnerName(O1.getOwnerName());
