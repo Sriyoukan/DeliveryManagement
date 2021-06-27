@@ -41,8 +41,8 @@ public class OrderController {
         return r;
     }
     
-    @GetMapping("/getConfirmOrder/status")
-    public List<Order> getConfirmOrder(@RequestParam String status)
+    @GetMapping("/getOrderByStatus/status")
+    public List<Order> getOrderByStatus(@RequestParam String status)
     {
     	return orderRepository.findByStatus(status);
     }
