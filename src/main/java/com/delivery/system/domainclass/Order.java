@@ -20,7 +20,7 @@ public class Order {
     private String stockName;
 
     private String ownerAddress;
-
+    private String ownerDetails;
     @NotNull
     private String stockAddress;
 
