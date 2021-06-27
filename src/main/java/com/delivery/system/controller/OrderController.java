@@ -28,7 +28,7 @@ public class OrderController {
     public ResponseOrder  saveOrder(@RequestBody Order order){
         ResponseOrder r=new ResponseOrder();
         order.setOrderDate(new Date(System.currentTimeMillis()));
-        order.setStatus(Status.UNCONFIRM);
+        order.setStatus(Status.UNCONFIRMED);
         Order O1=orderRepository.save(order);
         r.setOrderId(O1.getOrderId());
         r.setOwnerName(O1.getOwnerName());
