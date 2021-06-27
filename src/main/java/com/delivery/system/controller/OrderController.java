@@ -2,10 +2,12 @@ package com.delivery.system.controller;
 
 
 import com.delivery.system.domainclass.Order;
+import com.delivery.system.domainclass.ResponseOrder;
 import com.delivery.system.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -21,7 +23,19 @@ public class OrderController {
     }
 
     @PostMapping("/addOrder")
-    public Order saveOrder(@RequestBody Order order){
-        return orderRepository.save(order);
+    public ResponseOrder  saveOrder(@RequestBody Order order){
+        ResponseOrder r=new ResponseOrder();
+        order.setOrderDate(new Date(System.currentTimeMillis()));
+        Order O1=orderRepository.save(order);
+        r.setOrderId(O1.getOrderId());
+        r.setOwnerName(O1.getOwnerName());
+        r.setStockAddress(O1.getStockAddress());
+        r.setDeliveryAddress(O1.getDeliveryAddress());
+        r.setOwnerEmail(O1.getOwnerEmail());
+        r.setOwnerPhoneNumber(O1.getOwnerPhoneNumber());
+        r.setOrderDate(O1.getOrderDate());
+
+
+        return r;
     }
 }
