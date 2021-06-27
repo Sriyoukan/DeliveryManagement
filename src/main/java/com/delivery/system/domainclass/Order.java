@@ -17,6 +17,8 @@ public class Order {
     @NotNull
     private String ownerName;
 
+    private String stockName;
+
     @NotNull
     private String stockAddress;
 
@@ -102,4 +104,4 @@ public class Order {
         this.ownerPhoneNumber = ownerPhoneNumber;
     }
 }
-hello world
+
