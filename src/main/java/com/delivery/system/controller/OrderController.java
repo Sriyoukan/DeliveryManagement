@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/order")
 public class OrderController {
- 
+
     @Autowired
     private OrderRepository orderRepository;
 
@@ -40,7 +40,7 @@ public class OrderController {
 
         return r;
     }
-    
+
     @GetMapping("/getOrderByStatus/status")
     public List<Order> getOrderByStatus(@RequestParam String status)
     {
