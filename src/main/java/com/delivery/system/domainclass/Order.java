@@ -17,12 +17,11 @@ public class Order {
     @NotNull
     private String ownerName;
 
-    private String stockName;
 
-    private String ownerAddress;
-    private String ownerDetails;
     @NotNull
     private String stockAddress;
+
+
 
     @NotNull
     private String deliveryAddress;
