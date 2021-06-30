@@ -28,7 +28,7 @@ public class ResponseOrder {
     private String ownerPhoneNumber;
 
 
-    private String status;
+    private Status status;
 
 
     private Date orderDate;
@@ -41,11 +41,11 @@ public class ResponseOrder {
         this.orderDate = orderDate;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

@@ -17,8 +17,11 @@ public class Order {
     @NotNull
     private String ownerName;
 
+
     @NotNull
     private String stockAddress;
+
+
 
     @NotNull
     private String deliveryAddress;
@@ -30,7 +33,8 @@ public class Order {
     private String ownerPhoneNumber;
     
     @NotNull
-    private String status;
+    @JsonIgnore
+    private Status status;
 
     @NotNull
     @JsonIgnore
@@ -44,13 +48,15 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
+
 	}
+
 
 	public long getOrderId() {
         return orderId;
@@ -100,3 +106,4 @@ public class Order {
         this.ownerPhoneNumber = ownerPhoneNumber;
     }
 }
+

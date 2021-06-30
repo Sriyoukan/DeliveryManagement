@@ -3,6 +3,7 @@ package com.delivery.system.controller;
 
 import com.delivery.system.domainclass.Order;
 import com.delivery.system.domainclass.ResponseOrder;
+import com.delivery.system.domainclass.Status;
 import com.delivery.system.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/order")
 public class OrderController {
- 
+
     @Autowired
     private OrderRepository orderRepository;
 
@@ -27,6 +28,9 @@ public class OrderController {
     public ResponseOrder  saveOrder(@RequestBody Order order){
         ResponseOrder r=new ResponseOrder();
         order.setOrderDate(new Date(System.currentTimeMillis()));
+        order.setStatus(Status.UNCONFIRMED);
+        order.setStatus(Status.CONFIRMED);
+        order.setStatus(Status.DELIVERED);
         Order O1=orderRepository.save(order);
         r.setOrderId(O1.getOrderId());
         r.setOwnerName(O1.getOwnerName());
@@ -40,9 +44,9 @@ public class OrderController {
 
         return r;
     }
-    
-    @GetMapping("/getConfirmOrder/status")
-    public List<Order> getConfirmOrder(@RequestParam String status)
+
+    @GetMapping("/getOrderByStatus/status")
+    public List<Order> getOrderByStatus(@RequestParam String status)
     {
     	return orderRepository.findByStatus(status);
     }
