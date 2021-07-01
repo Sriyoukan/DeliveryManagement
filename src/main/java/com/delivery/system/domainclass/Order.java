@@ -33,11 +33,9 @@ public class Order {
     private String ownerPhoneNumber;
     
     @NotNull
-    @JsonIgnore
     private Status status;
 
     @NotNull
-    @JsonIgnore
     private Date orderDate;
 
     public Date getOrderDate() {

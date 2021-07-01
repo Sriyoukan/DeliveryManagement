@@ -29,8 +29,6 @@ public class OrderController {
         ResponseOrder r=new ResponseOrder();
         order.setOrderDate(new Date(System.currentTimeMillis()));
         order.setStatus(Status.UNCONFIRMED);
-        order.setStatus(Status.CONFIRMED);
-        order.setStatus(Status.DELIVERED);
         Order O1=orderRepository.save(order);
         r.setOrderId(O1.getOrderId());
         r.setOwnerName(O1.getOwnerName());
@@ -45,10 +43,25 @@ public class OrderController {
         return r;
     }
 
-    @GetMapping("/getOrderByStatus/status")
-    public List<Order> getOrderByStatus(@RequestParam String status)
+    @GetMapping("/getOrderByStatus/{status}")
+    public List<Order> getOrderByStatus(@PathVariable String status)
     {
-    	return orderRepository.findByStatus(status);
+        Status status1 = Status.UNCONFIRMED ;
+        switch (status){
+            case "UNCONFIRMED":
+                status1= Status.UNCONFIRMED;
+                break;
+            case "CONFIRMED":
+                status1=Status.CONFIRMED;
+                break;
+            case "DELIVERED":
+                status1=Status.DELIVERED;
+                break;
+
+        }
+
+        return orderRepository.findByStatus(status1);
+
     }
     //
 }
