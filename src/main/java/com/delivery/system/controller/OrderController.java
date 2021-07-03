@@ -15,7 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/order")
 public class OrderController {
-
+	
+	
     @Autowired
     private OrderRepository orderRepository;
 
@@ -23,7 +24,7 @@ public class OrderController {
     public List<Order> getAllOrder(){
         return orderRepository.findAll();
     }
-
+    @CrossOrigin(origins="http://localhost:3000")
     @PostMapping("/addOrder")
     public ResponseOrder  saveOrder(@RequestBody Order order){
         ResponseOrder r=new ResponseOrder();
