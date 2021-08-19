@@ -17,11 +17,8 @@ public class Order {
     @NotNull
     private String ownerName;
 
-
     @NotNull
     private String stockAddress;
-
-
 
     @NotNull
     private String deliveryAddress;
@@ -32,10 +29,10 @@ public class Order {
     @NotNull
     private String ownerPhoneNumber;
     
-    @NotNull
+
     private Status status;
 
-    @NotNull
+
     private Date orderDate;
 
     public Date getOrderDate() {
