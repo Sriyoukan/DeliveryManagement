@@ -2,36 +2,37 @@ package com.delivery.system.domainclass;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
-public class ResponseOrder {
+@Entity
+@Table(name="new_orders")
+public class NewOrder {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long orderId;
 
-
+    @NotNull
     private String ownerName;
 
-
+    @NotNull
     private String stockAddress;
 
-
+    @NotNull
     private String deliveryAddress;
 
-
+    @NotNull
     private String ownerEmail;
 
-
+    @NotNull
     private String ownerPhoneNumber;
-
 
     private Status status;
 
-
     private Date orderDate;
+
 
     public Date getOrderDate() {
         return orderDate;
