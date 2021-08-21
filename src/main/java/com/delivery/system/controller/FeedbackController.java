@@ -1,5 +1,6 @@
 package com.delivery.system.controller;
 
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,9 @@ public class FeedbackController {
 
     @Autowired
     private FeedbackRepository feedbackRepo;
+
+    @Autowired
+    private SimpMessagingTemplate simpMessagingTemplate;
     
     @GetMapping("/getFeedback")
     public List<Feedback> getFeedback(){
@@ -30,7 +34,9 @@ public class FeedbackController {
     @PostMapping("/sendFeedback")
     public Feedback send(@RequestBody Feedback feedback){
     	feedback.setsentDate(new Date(System.currentTimeMillis()));
-       Feedback feedback1 = feedbackRepo.save(feedback);
+        Feedback feedback1 = feedbackRepo.save(feedback);
+        simpMessagingTemplate.convertAndSend("/topic/feedback",feedback1);
+
        return feedback1;
     }
 }
