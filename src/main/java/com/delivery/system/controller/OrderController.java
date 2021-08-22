@@ -87,5 +87,11 @@ public class OrderController {
         return orderRepository.findByStatus(status1);
 
     }
+    @PostMapping("/setConfirm")
+    public Order confirmOrder(@RequestBody Order order){
+        order.setStatus(Status.CONFIRMED);
+        Order o1 = orderRepository.save(order);
+        return o1;
+    }
     //
 }
