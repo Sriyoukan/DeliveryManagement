@@ -14,12 +14,14 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.sql.Date;
 import java.util.List;
 
 @RestController
 @CrossOrigin
 @RequestMapping(value = "/order")
+@Transactional
 public class OrderController {
 	
 	
@@ -92,6 +94,14 @@ public class OrderController {
         order.setStatus(Status.CONFIRMED);
         Order o1 = orderRepository.save(order);
         return o1;
+    }
+    @PostMapping("/deleteOrder")
+    public void deleteOrder(@RequestBody Order order) throws Exception{
+        try {
+            orderRepository.deleteByOrderId(order.getOrderId());
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
     }
     //
 }

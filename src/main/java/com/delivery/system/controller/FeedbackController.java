@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.delivery.system.domainclass.Feedback;
+import com.delivery.system.domainclass.Order;
 import com.delivery.system.repository.FeedbackRepository;
 import java.util.UUID;
 import java.sql.Date;
@@ -38,5 +39,13 @@ public class FeedbackController {
         simpMessagingTemplate.convertAndSend("/topic/feedback",feedback1);
 
        return feedback1;
+    }
+    @PostMapping("/deleteFeedback")
+    public void deleteFeedback(@RequestBody Feedback feedback) throws Exception{
+        try {
+            feedbackRepo.deleteByFeedbackId(feedback.getFeedbackId());
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
     }
 }
