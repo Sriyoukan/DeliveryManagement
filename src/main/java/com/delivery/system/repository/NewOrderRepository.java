@@ -10,4 +10,6 @@ public interface NewOrderRepository extends JpaRepository<NewOrder,Long> {
     List<NewOrder> findAll();
 
     NewOrder save(NewOrder order);
+    
+    
 }

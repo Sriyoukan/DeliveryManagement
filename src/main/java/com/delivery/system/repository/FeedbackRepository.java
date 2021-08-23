@@ -10,5 +10,6 @@ public interface FeedbackRepository extends JpaRepository<Feedback,Long>{
 	Feedback save(Feedback feedback);
 	
 	List<Feedback> findAll();
-	   
+	
+	int deleteByFeedbackId(Long id);
 }
