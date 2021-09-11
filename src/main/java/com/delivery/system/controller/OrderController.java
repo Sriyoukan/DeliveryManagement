@@ -4,6 +4,7 @@ package com.delivery.system.controller;
 import com.delivery.system.domainclass.NewOrder;
 import com.delivery.system.domainclass.Order;
 import com.delivery.system.domainclass.Status;
+import com.delivery.system.domainclass.User;
 import com.delivery.system.repository.NewOrderRepository;
 import com.delivery.system.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class OrderController {
 
     @GetMapping("/getAllOrder")
     public List<Order> getAllOrder(){
+
         return orderRepository.findAll();
     }
 
@@ -101,6 +103,16 @@ public class OrderController {
             orderRepository.deleteByOrderId(order.getOrderId());
         }catch(Exception ex){
             System.out.println(ex);
+        }
+    }
+
+    @PostMapping("/login")
+    public User login(@RequestBody User user){
+        User newUser = new User();
+        if(newUser.getUsername() == user.getUsername() && newUser.getPassword()== user.getPassword()){
+            return newUser;
+        }else{
+            return null;
         }
     }
     //
