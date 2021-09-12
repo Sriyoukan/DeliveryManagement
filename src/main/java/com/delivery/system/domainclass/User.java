@@ -9,43 +9,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class User implements UserDetails {
-    String username = "user";
-    String password = "1234";
+public class User  {
+    private String username ;
+    private String password ;
 
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("USER"));
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
     public String getUsername() {
         return username;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
+    public String getPassword() {
+        return password;
     }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
