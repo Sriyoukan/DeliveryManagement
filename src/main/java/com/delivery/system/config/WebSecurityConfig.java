@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http.cors().and().authorizeRequests().antMatchers("/","/order/sendRequest","/feedback/sendFeedback","/order/login","/orderNotification/topic/notification").permitAll()
+        http.cors().and().authorizeRequests().antMatchers("/","/order/sendRequest","/feedback/sendFeedback","/order/login","/orderNotification").permitAll()
                 .anyRequest().authenticated().and().httpBasic().and().csrf().disable();
 
 
