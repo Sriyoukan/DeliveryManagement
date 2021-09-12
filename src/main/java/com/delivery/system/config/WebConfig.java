@@ -15,7 +15,7 @@ public class WebConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
         stompEndpointRegistry.addEndpoint("/orderNotification")
                 .setAllowedOriginPatterns("*")
-                .setAllowedOrigins("*")
+                .setAllowedOrigins("https://laraxpress.web.app")
                 .withSockJS();
     }
 
