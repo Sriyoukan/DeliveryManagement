@@ -108,9 +108,9 @@ public class OrderController {
 
     @PostMapping("/login")
     public User login(@RequestBody User user){
-        User newUser = new User();
-        if(newUser.getUsername() == user.getUsername() && newUser.getPassword()== user.getPassword()){
-            return newUser;
+
+        if(user.getUsername().equals("user")  && user.getPassword().equals("1234")){
+            return user;
         }else{
             return null;
         }
