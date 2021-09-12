@@ -18,9 +18,10 @@ import com.delivery.system.domainclass.Document;
 import com.delivery.system.repository.DocumentRepository;
 
 
-@CrossOrigin
+
 @RestController
 @RequestMapping(value = "/uploads")
+@CrossOrigin
 public class DocumentController {
 
 
