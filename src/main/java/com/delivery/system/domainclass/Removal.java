@@ -1,14 +1,17 @@
 package com.delivery.system.domainclass;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 @Entity
-@Table(name="orders")
-public class Order {
+@Table(name="removal")
+public class Removal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,9 +39,17 @@ public class Order {
     private Date orderDate;
     
     @NotNull
-    private String description;
+    private String serviceType;
+    
+    public String getServiceType() {
+		return serviceType;
+	}
 
-    public String getDescription() {
+	public void setServiceType(String serviceType) {
+		this.serviceType = serviceType;
+	}
+
+	public String getDescription() {
 		return description;
 	}
 
@@ -46,7 +57,10 @@ public class Order {
 		this.description = description;
 	}
 
-	public Date getOrderDate() {
+	@NotNull
+    private String description;
+
+    public Date getOrderDate() {
         return orderDate;
     }
 
@@ -112,4 +126,3 @@ public class Order {
         this.ownerPhoneNumber = ownerPhoneNumber;
     }
 }
-
