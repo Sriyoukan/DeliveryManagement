@@ -34,8 +34,19 @@ public class Order {
 
 
     private Date orderDate;
+    
+    @NotNull
+    private String description;
 
-    public Date getOrderDate() {
+    public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getOrderDate() {
         return orderDate;
     }
 
