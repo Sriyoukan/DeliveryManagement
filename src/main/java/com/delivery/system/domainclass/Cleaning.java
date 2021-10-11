@@ -80,6 +80,17 @@ public class Cleaning {
 	private Date orderDate;
 	
 	private Status status;
+	
+	@NotNull
+	private String phone;
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 	public Status getStatus() {
 		return status;
