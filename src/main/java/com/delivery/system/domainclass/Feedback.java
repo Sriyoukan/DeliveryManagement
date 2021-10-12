@@ -32,8 +32,18 @@ public class Feedback {
 
 	    @NotNull
 	    private String message;
+	    
+	    private int rating;
 
-	    public long getFeedbackId() {
+	    public int getRating() {
+			return rating;
+		}
+
+		public void setRating(int rating) {
+			this.rating = rating;
+		}
+
+		public long getFeedbackId() {
 			return feedbackId;
 		}
 
